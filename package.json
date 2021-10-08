@@ -1,0 +1,36 @@
+{
+  "name": "gemini-tools",
+  "version": "0.1.0",
+  "description": "Gemini Tools",
+  "main": "lib/gemini-tools.js",
+  "repository": "https://github.com/freelogstudio/gemini-tools",
+  "author": "Freelog Studio LLC",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@ethersproject/bignumber": "^5.0.5",
+    "bignumber.js": "^9.0.0",
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "gemini-api": "^2.0.4",
+    "prettier": "^2.1.0",
+    "yargs": "^15.4.1"
+  },
+  "scripts": {
+    "dump-ether": "cross-env node bin/gemini-tools dump-ether",
+    "dump-btc": "cross-env node bin/gemini-tools dump-btc",
+    "get-balance": "cross-env node bin/gemini-tools get-balance",
+    "test": "mocha --timeout 0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
+    "eslint-plugin-mocha": "^8.0.0",
+    "local-repl": "^4.0.0",
+    "mocha": "^8.1.1"
+  },
+  "bin": {
+    "gemini-tools": "./bin/gemini-tools.js"
+  }
+}
