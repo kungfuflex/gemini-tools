@@ -17,9 +17,19 @@ const logger = {
   }
 };
 const _dumpBTC = require('../lib/dump-btc');
+const _dumpUSDC = require('../lib/dump-usdc');
 
 const dumpBTC = async (gemini) => {
   const results = await _dumpBTC(gemini, (trades) => {
+    logger.info('got trades!');
+    console.log(util.inspect(trades, { colors: true, depth: 15 }));
+  });
+  logger.info('done');
+  return results;
+};
+
+const dumpUSDC = async (gemini) => {
+  const results = await _dumpUSDC(gemini, (trades) => {
     logger.info('got trades!');
     console.log(util.inspect(trades, { colors: true, depth: 15 }));
   });
@@ -40,12 +50,15 @@ const dumpBTC = async (gemini) => {
       break;
     case 'dump-btc':
       await dumpBTC(gemini);
+      break;
     case 'get-balance':
       const record = await gemini.getMyAvailableBalances();
       record.forEach((v) => {
         logger.info(v.amount + ' ' + v.currency);
       });
       break;
+    case 'dump-usdc':
+      await dumpUSDC(gemini);
       
   }
 })().catch((err) => console.error(err));
