@@ -9,7 +9,7 @@
   "private": false,
   "dependencies": {
     "@ethersproject/bignumber": "^5.0.5",
-    "bignumber.js": "^9.0.0",
+    "bignumber.js": "^9.1.2",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "gemini-api": "^2.0.4",
@@ -29,7 +29,8 @@
     "eslint": "^7.7.0",
     "eslint-plugin-mocha": "^8.0.0",
     "local-repl": "^4.0.0",
-    "mocha": "^8.1.1"
+    "mocha": "^8.1.1",
+    "nice-repl": "^0.1.2"
   },
   "bin": {
     "gemini-tools": "./bin/gemini-tools.js"
