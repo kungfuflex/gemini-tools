@@ -18,6 +18,7 @@ const logger = {
 };
 const _dumpBTC = require('../lib/dump-btc');
 const _dumpUSDC = require('../lib/dump-usdc');
+const _buy = require('../lib/buy');
 
 const dumpBTC = async (gemini) => {
   const results = await _dumpBTC(gemini, (trades) => {
@@ -41,6 +42,13 @@ const dumpUSDC = async (gemini) => {
   const { help, h } = yargs.argv;
   const [ subcommand ] = yargs.argv._;
   switch (subcommand)  {
+    case 'buy-ether':
+      const buyETHresults = await _buy(gemini, (trades) => {
+        logger.info('got trades!');
+        console.log(util.inspect(trades, { colors: true, depth: 15 }));
+      });
+      logger.info('done');
+      break;
     case 'dump-ether':
       const results = await dump(gemini, (trades) => {
         logger.info('got trades!');
